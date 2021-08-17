@@ -201,12 +201,34 @@ const outPut12 = document.querySelector(".btn-prime12");
 
 subMit12.addEventListener("click", () => {
   const x = inPut12.value;
-  const y = String(x);
   let count = 0;
-  for(let k = 0 ; k <= y.length-1 ; k++){
-    if(y.charAt(k) == " "){
+  for(let k = 0 ; k <= x.length-1 ; k++){
+    if(x.charAt(k) == " "){
       count++
     }
   }
   outPut12.innerHTML = `có ${count} khoảng cách`;
+});
+
+// xóa khoảng cách
+const inPut13 = document.querySelector(".btn-number13");
+const subMit13 = document.querySelector(".subMit13");
+const outPut13 = document.querySelector(".btn-prime13");
+
+subMit13.addEventListener("click", () => {
+  console.log(typeof (inPut13.value));
+  let x = inPut13.value
+  // for(let i = 0 ; i <= x.length -1 ;i++)
+  let del_x = Str.replace(/\s+/g, '')
+  console.log("del :" ,del_x);
+  // outPut13.innerHTML=del_x
+  // const x = inPut12.value;
+  // const y = String(x);
+  // let count = 0;
+  // for(let k = 0 ; k <= y.length-1 ; k++){
+  //   if(y.charAt(k) == " "){
+  //     count++
+  //   }
+  // }
+  // outPut12.innerHTML = `có ${count} khoảng cách`;
 });
