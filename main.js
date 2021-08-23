@@ -234,3 +234,85 @@ subMit14.addEventListener("click", () => {
   }
   outPut14.innerHTML=`${dao}`
 });
+
+// tìm thứ tự trong chuỗi
+const inPut15 = document.querySelector(".btn-number15");
+const subMit15 = document.querySelector(".subMit15");
+const outPut15 = document.querySelector(".btn-prime15");
+const inPutX = document.querySelector(".btn-numberX");
+
+subMit15.addEventListener("click", () => {
+  let x = inPut15.value
+  let y = inPutX.value
+  let arr = x.split(" ")
+  // let arr2 = y.split(" ")
+
+        const z = arr.indexOf(y)
+        console.log(z);
+        outPut15.innerHTML = `vị trí thứ ${z + 1 }`
+
+  // for (let i = 0 ; i < arr.length  ; i++) {
+  //   for(let j = 0 ; j < arr2.length ; j++) {
+  //     console.log("arr :",arr[i] , "arr2 :",arr2[j]);
+
+  //     if ( arr[i] == arr2[j] ) {
+        
+  //      }
+  //      // else {
+  //     //   outPut15.innerHTML= " không tìm thấy " 
+  //     //  }
+
+  //   }
+   
+  // }
+ 
+})
+
+
+// chuẩn hóa họ tên
+const inPut16 = document.querySelector(".btn-number16");
+const subMit16 = document.querySelector(".subMit16");
+const outPut16 = document.querySelector(".btn-prime16");
+
+subMit16.addEventListener("click", () => {
+  let x = inPut16.value
+  let str = x.toLowerCase().replace(/(^|\s)\S/g, function(uppercase) { return uppercase.toUpperCase() }); 
+  outPut16.innerHTML = `${str}`
+})
+
+// lấy ID
+// const inPut17 = document.querySelector(".btn-number17");
+// const subMit17 = document.querySelector(".subMit17");
+// const outPut17 = document.querySelector(".btn-prime17");
+
+// subMit17.addEventListener("click", () => {
+//   let x = inPut17.value
+//   const pram = new URLSearchParams()
+//   console.log(pram);
+//   console.log(x);
+// })
+
+// tìm min max của 3 số 
+const inPut18 = document.querySelector(".btn-number18");
+const subMit18 = document.querySelector(".subMit18");
+const outPut18 = document.querySelector(".btn-prime18");
+
+subMit18.addEventListener("click", () => {
+  let x = inPut18.value
+  let arr = x.split(" ")
+  let max = Math.max.apply(Math, arr); 
+  let min = Math.min.apply(Math, arr);
+
+ outPut18.innerHTML =`max của 3 số là ${max} min của 3 số là ${min}`
+})
+
+//  xóa khoảng trăng đầu và cuối chuỗi
+const inPut21 = document.querySelector(".btn-number21");
+const subMit21 = document.querySelector(".subMit21");
+const outPut21 = document.querySelector(".btn-prime21");
+
+subMit21.addEventListener("click", () => {
+ let x = inPut21.value
+ let newStr = x.trim()
+ outPut18.innerHTML =`${newStr}`
+})
