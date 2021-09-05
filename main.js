@@ -4,7 +4,6 @@ const subMit = document.querySelector(".submit");
 const outPut = document.querySelector(".btn-prime");
 
 subMit.addEventListener("click", () => {
-  console.log(inPut.value);
   if (inPut.value < 2) {
     outPut.innerHTML = `${inPut.value} không phải số nguyên tố`;
   } else {
@@ -315,4 +314,203 @@ subMit21.addEventListener("click", () => {
  let x = inPut21.value
  let newStr = x.trim()
  outPut18.innerHTML =`${newStr}`
+})
+
+
+// phần arr
+//  tổng tất cả con số trong mảng
+const inPut22 = document.querySelector(".btn-number22");
+const subMit22 = document.querySelector(".subMit22");
+const outPut22 = document.querySelector(".btn-prime22");
+
+subMit22.addEventListener("click", () => {
+ let x = inPut22.value
+ let array = x.split(" ")
+ let sum = 0
+ for(let i = 0 ; i < array.length ; i++ ){ 
+   let number = Number(array[i])
+   sum += number
+}
+ outPut22.innerHTML =`tổng của tất cả các số trong mảng là : ${sum}`
+})
+
+// tìm số lớn nhất, nhỏ nhất và số trung bình trong mảng 
+const inPut23 = document.querySelector(".btn-number23");
+const subMit23 = document.querySelector(".subMit23");
+const outPut23 = document.querySelector(".btn-prime23");
+
+subMit23.addEventListener("click", () => {
+ let x = inPut23.value
+ let array = x.split(" ")
+ let sum = 0
+ let TB = 0
+ for(let i = 0 ; i < array.length ; i++ ){ 
+  let number = Number(array[i])
+  sum += number
+}
+  TB  = sum / array.length
+  let max = Math.max.apply(Math, array); 
+  let min = Math.min.apply(Math, array);
+
+ outPut23.innerHTML =`max,min,trung bình lần lượt là :${max}, ${min} , ${TB}`
+})
+
+
+// tìm tần suất xuất hiện
+const inPut24 = document.querySelector(".btn-number24");
+const subMit24 = document.querySelector(".subMit24");
+const outPut24 = document.querySelector(".btn-prime24");
+
+subMit24.addEventListener("click", () => {
+ let x = inPut24.value
+ let array = x.split(" ")
+ const SS = array.sort()
+ let dem = 1
+ let max = 0
+    for(let i = 0 ; i < SS.length ; i++ ){ 
+      if( SS[i] === SS[i+1] ) {
+        dem++
+        if(dem > max ) {
+          max = dem
+          outPut24.innerHTML =`Tần suất xuất hiện nhiều nhất của ${SS[i]} là : ${max} lần`
+         }
+      } else {dem = 1}
+    }
+})
+
+// tìm số nguyên tố trong mảng
+const inPut25 = document.querySelector(".btn-number25");
+const subMit25 = document.querySelector(".subMit25");
+const outPut25 = document.querySelector(".btn-prime25");
+
+subMit25.addEventListener("click",() => {
+ let x = inPut25.value
+ let arr = x.split(" ")
+function check(number) {
+  if (number < 2) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+result = arr.filter((number) => {
+  return check(number);
+});
+  
+  outPut25.innerHTML=`số nguyên tố trong mảng là : ${result}`
+})
+
+// bình phương số trong mảng 
+const inPut26 = document.querySelector(".btn-number26");
+const subMit26 = document.querySelector(".subMit26");
+const outPut26 = document.querySelector(".btn-prime26");
+
+subMit26.addEventListener("click", () => {
+  let x = inPut26.value
+  let arr = x.split(" ")
+  console.log(arr);
+
+  let bp = arr.map((number) => {
+    return Math.pow(number,2)
+  })
+  outPut26.innerHTML=bp
+})
+
+// tìm số gần vs vị trí k
+const inPut27 = document.querySelector(".btn-number27");
+const inPutVt = document.querySelector(".btn-vt");
+const subMit27 = document.querySelector(".subMit27");
+const outPut27 = document.querySelector(".btn-prime27");
+
+subMit27.addEventListener("click", () => {
+  let x = inPut27.value
+  let y = Number(inPutVt.value)
+  let arr = x.split(" ")
+  let newArr = []
+  for(let i = 0 ;i< arr.length ; i++) {
+    let numBer = Number(arr[i])
+    if(numBer + 1 === y || numBer - 1 === y) {
+      newArr.push(numBer)
+    } else outPut27.innerHTML=`không có số nào gần vị trí ${y}`
+  }
+  outPut27.innerHTML = `vị trí ${newArr} gần với ${y} nhất`
+})
+
+// đưa tên và họ về chuẩn tên với ký tự đầu tiên
+const subMit28 = document.querySelector(".subMit28");
+const outPut28 = document.querySelector(".btn-prime28");
+subMit28.addEventListener("click", () => {
+  let students = [
+    {
+      id: "T3HXX1",
+      firstName: "NgAN",
+      lastName: "Duong Thuy",
+    },
+    {
+      id: "T3HXX2",
+      firstName: "Ha",
+      lastName: "Do Thi Thu",
+    },
+    {
+      id: "T3HXX5",
+      firstName: "Minh",
+      lastName: "Nguyen Nhat",
+    },
+    {
+      id: "T3HXX6",
+      firstName: "Minh",
+      lastName: "Do Nguyen Nhat",
+    },
+  ];
+  
+  for(let i = 0 ;i < students.length ; i++) {
+    if( students[i].firstName.length >= 3 && students[i].firstName.includes("a") || students[i].firstName.includes("A")) {
+         students[i].firstName = students[i].firstName.slice(0,1) + students[i].firstName.slice(1).toLowerCase()
+        students[i].lastName = students[i].lastName
+        outPut28.innerHTML = JSON.stringify(students[i])
+      }
+    }
+ 
+})
+
+console.log('123');
+
+
+// tìm học sinh có họ đỗ
+const subMit29 = document.querySelector(".subMit29");
+const outPut29 = document.querySelector(".btn-prime29");
+subMit29.addEventListener("click",() => {
+  let students = [
+    {
+      id: "T3HXX1",
+      firstName: "NgAN",
+      lastName: "Duong Thuy",
+    },
+    {
+      id: "T3HXX2",
+      firstName: "Ha",
+      lastName: "Do Thi Thu",
+    },
+    {
+      id: "T3HXX5",
+      firstName: "Minh",
+      lastName: "Nguyen Nhat",
+    },
+    {
+      id: "T3HXX6",
+      firstName: "Minh",
+      lastName: "Do Nguyen Nhat",
+    },
+  ];
+  var result = students.filter( (person) => {
+   return person.lastName.startsWith("Do") 
+    
+  })
+  outPut29.innerHTML = JSON.stringify(result)
+      
 })
