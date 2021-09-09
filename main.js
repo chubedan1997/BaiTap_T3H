@@ -279,17 +279,17 @@ subMit16.addEventListener("click", () => {
   outPut16.innerHTML = `${str}`
 })
 
-// lấy ID
-// const inPut17 = document.querySelector(".btn-number17");
-// const subMit17 = document.querySelector(".subMit17");
-// const outPut17 = document.querySelector(".btn-prime17");
+//lấy ID
+const subMit17 = document.querySelector(".subMit17");
+const outPut17 = document.querySelector(".btn-prime17");
 
-// subMit17.addEventListener("click", () => {
-//   let x = inPut17.value
-//   const pram = new URLSearchParams()
-//   console.log(pram);
-//   console.log(x);
-// })
+subMit17.addEventListener("click", () => {
+  let url = "https://www.facebook.com/ngothucdat";
+  result = url.slice(url.lastIndexOf("/") + 1);
+
+  outPut17.innerHTML =result
+
+})
 
 // tìm min max của 3 số 
 const inPut18 = document.querySelector(".btn-number18");
@@ -478,9 +478,6 @@ subMit28.addEventListener("click", () => {
  
 })
 
-console.log('123');
-
-
 // tìm học sinh có họ đỗ
 const subMit29 = document.querySelector(".subMit29");
 const outPut29 = document.querySelector(".btn-prime29");
@@ -513,4 +510,130 @@ subMit29.addEventListener("click",() => {
   })
   outPut29.innerHTML = JSON.stringify(result)
       
+})
+
+
+// sắp xếp
+const subMit30 = document.querySelector(".subMit30");
+const outPut30 = document.querySelector(".btn-prime30");
+subMit30.addEventListener("click",() => {
+  let students = [
+    {
+      id: "T3HXX1",
+      firstName: "NgAN",
+      lastName: "Duong Thuy",
+    },
+    {
+      id: "T3HXX2",
+      firstName: "Ha",
+      lastName: "Do Thi Thu",
+    },
+    {
+      id: "T3HXX5",
+      firstName: "Minh",
+      lastName: "Nguyen Nhat",
+    },
+    {
+      id: "T3HXX6",
+      firstName: "Minh",
+      lastName: "Do Nguyen Nhat",
+    },
+  ];
+  result = students.sort((s1, s2) => {
+    if (s1.firstName > s2.firstName) return 1;
+    else if (s1.firstName < s2.firstName) return -1;
+    else return 0;
+  });
+  outPut30.innerHTML = JSON.stringify(result)
+      
+})
+
+
+// tìm số lớn thứ 2 trong mảng
+const inPut31 = document.querySelector(".btn-number31");
+const subMit31 = document.querySelector(".subMit31");
+const outPut31 = document.querySelector(".btn-prime31");
+
+subMit31.addEventListener("click", () => {
+  let x = inPut31.value
+  let arr = x.split(" ")
+  let max =0
+  let max2 =0
+  for (let i = 0 ; i <arr.length ; i++) {
+    let number = Number(arr[i])
+    if(number > max) {
+      max = number
+    }
+  }
+  for(let i = 0 ; i < arr.length ; i++) {
+    let number = Number(arr[i])
+    if(max === number) {
+      continue
+    } else if (max2 < number) {
+      max2 = number
+      outPut31.innerHTML =` số lớn thứ 2 trong mảng là ${max2}`
+    }
+  }
+})
+
+// tìm xem trong mảng có tổng 3 số có bằng k không
+const inPut32 = document.querySelector(".btn-number32");
+const subMit32 = document.querySelector(".subMit32");
+const outPut32 = document.querySelector(".btn-prime32");
+
+subMit32.addEventListener("click", () => {
+  let x = inPut32.value
+  let arr = x.split(" ")
+  
+})
+
+//sắp sếp và chèn k vào mảng tăng dần
+const inPut33 = document.querySelector(".btn-number33");
+const number = document.querySelector(".number");
+const subMit33 = document.querySelector(".subMit33");
+const outPut33 = document.querySelector(".btn-prime33");
+
+
+subMit33.addEventListener("click", () => {
+  let x = inPut33.value
+  let arr = x.split(" ")
+  let y = number.value
+  let numberK = Number(y)
+
+  let numberArr = arr.map((i) => Number(i))
+  for (let i = 0; i < numberArr.length ; i++) {
+    for (let j = i + 1; j < numberArr.length ; j++) {
+        if (numberArr[i] > numberArr[j]) {
+            let temp = numberArr[i]
+            numberArr[i] = numberArr[j]
+            numberArr[j] = temp
+        }
+    }
+}
+
+for(let i = 0 ; i < numberArr.length ; i++) {
+  if(numberK < numberArr[i]) {
+    numberArr[i + 1] = numberK
+    i++
+  }
+}
+  let sort = numberArr.sort()
+outPut33.innerHTML = sort
+
+})
+
+
+
+//sắp sếp và chèn k vào mảng tăng dần
+const inPut34 = document.querySelector(".btn-number34");
+const subMit34 = document.querySelector(".subMit34");
+const outPut34 = document.querySelector(".btn-prime34");
+
+
+subMit34.addEventListener("click", () => {
+  let x = inPut34.value
+  let arr = x.split(" ")
+  let numberArr = arr.map((i) => Number(i))
+  let sort = numberArr.sort()
+  outPut34.innerHTML = sort
 })
